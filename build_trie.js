@@ -2,8 +2,10 @@
 
 //  Function de create a trie
 function buildTrie() {
-  return console.log('Hello, world!');
+  for (let i = 0; i < arguments.length; i += 1) {
+    console.log(arguments[i]);
+  }
 }
 
 // Execute the function
-buildTrie();
+buildTrie('ae', 'ei', 'io', 'ou');
