@@ -13,9 +13,35 @@ function Trie() {
   this.root = new Node(null);
 }
 
+//  Method to insert the word in the node
+Trie.prototype.add = function (word) {
+  let node = this.root;
+
+  // for every character in the word
+  for (let i = 0; i < word.length; i++) {
+    // check to see if character node exists.
+    if (!node.children[word[i]]) {
+      // if it doesn't exist, then create it.
+      node.children[word[i]] = new Node(word[i]);
+
+      // assign the parent.
+      node.children[word[i]].parent = node;
+    }
+
+    // proceed to the next depth in the trie.
+    node = node.children[word[i]];
+
+    // finally, check to see if is the end.
+    if (i == word.length - 1) {
+      // change the end flag to true.
+      node.end = true;
+    }
+  }
+};
+
 //  Function to pass an array to an object
 function array2Object(array, key) {
-  return array.reduce((obj, item) => ({ ...obj, [item]: item }), {});
+  return array.reduce((obj, item) => ({ ...obj, [key]: item }), {});
 }
 
 //  Function to create a trie
