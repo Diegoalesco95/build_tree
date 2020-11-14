@@ -1,5 +1,18 @@
 'use strict';
 
+// Node
+function Node(key) {
+  this.key = key;
+  this.parent = null;
+  this.children = {};
+  this.end = false;
+}
+
+// Tree
+function Trie() {
+  this.root = new Node(null);
+}
+
 //  Function to pass an array to an object
 function array2Object(array, key) {
   return array.reduce((obj, item) => ({ ...obj, [item]: item }), {});
@@ -7,6 +20,7 @@ function array2Object(array, key) {
 
 //  Function to create a trie
 function buildTrie() {
+  // Determine if there are arguments
   if (!arguments[0]) {
     return console.log({});
   } else {
