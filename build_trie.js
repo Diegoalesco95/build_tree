@@ -20,8 +20,14 @@ class Trie {
       // Run recursively until reaching the end of the word
       this.add(node[word.slice(0, index + 1)], word, index + 1);
     }
-    console.log(node);
     return node[word.slice(0, index + 1)];
+  }
+
+  // Method to search all words in the tree
+  searchAll() {
+    let node = this.root;
+    // console.log(node);
+    return node;
   }
 }
 
@@ -32,7 +38,7 @@ function buildTrie() {
 
   // Determine if are there arguments
   if (!arguments[0]) {
-    console.log({});
+    // console.log({});
     return {};
   } else {
     for (let i = 0; i < arguments.length; i++) {
@@ -42,7 +48,13 @@ function buildTrie() {
       trie.add(node, word, 0);
     }
   }
+  return trie.searchAll();
 }
 
 // Execute the function
-buildTrie('tree');
+// buildTrie();
+// buildTrie('');
+// buildTrie('tri');
+// buildTrie('tree');
+// buildTrie('A', 'to', 'tea', 'ted', 'ten', 'i', 'in', 'inn');
+// buildTrie('true', 'trust');
